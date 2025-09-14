@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  webapp:
+    build: .
+    container_name: moja_webapp
+    ports:
+      - "4001:4001"
+    volumes:
+      - .:/moja_apka
+    restart: unless-stopped
