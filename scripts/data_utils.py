@@ -1,5 +1,6 @@
 import pandas as pd
 from langdetect import detect
+from sklearn.model_selection import train_test_split
 
 def is_english(text):
     try:
@@ -29,5 +30,15 @@ def combine_datasets_and_export():
     dataset_all.to_csv('../data_for_modeling/dataset_all.csv', index=False)
     return dataset_all
 
-# def load_datasets(min_words: int, max_words: int):
+def load_datasets(min_words: int = 5, max_words: int = 300) -> pd.DataFrame:
+    dataset_all = pd.read_csv('../data_for_modeling/dataset_all.csv')
+    # filtracja po liczbie słów
+    dataset_all['word_count'] = dataset_all['text'].apply(lambda x: len(str(x).split()))
+    dataset_all = dataset_all[(dataset_all['word_count'] >= min_words) & (dataset_all['word_count'] <= max_words)]
+    dataset_all = dataset_all.drop(columns=['word_count'])
+    return dataset_all
 
+def load_dataset_sample(n: float = 0.3) -> pd.DataFrame:
+    dataset_all = load_datasets()
+    _, dataset_sample = train_test_split(dataset_all, train_size=n, stratify=dataset_all['fake'], random_state=42)
+    return dataset_sample
