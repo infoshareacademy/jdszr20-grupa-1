@@ -40,5 +40,5 @@ def load_datasets(min_words: int = 5, max_words: int = 300) -> pd.DataFrame:
 
 def load_dataset_sample(n: float = 0.3) -> pd.DataFrame:
     dataset_all = load_datasets()
-    _, dataset_sample = train_test_split(dataset_all, train_size=n, stratify=dataset_all['fake'], random_state=42)
+    dataset_sample, _ = train_test_split(dataset_all, train_size=n, stratify=dataset_all['fake'], random_state=42)
     return dataset_sample
