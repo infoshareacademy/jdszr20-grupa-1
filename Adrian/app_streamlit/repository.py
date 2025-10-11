@@ -1,9 +1,9 @@
 from enum import Enum
-from typing import Any
+from typing import Any, List
 import streamlit as st
 
 
-class Keys(Enum):
+class Key(Enum):
     Transformer = "Transformer"
     Model = "Model"
     DrawnEntries = "DrawnEntries"
@@ -11,17 +11,18 @@ class Keys(Enum):
     ScoreUser = "ScoreUser"
     ScoreAI = "ScoreAI"
     Result = "Result"
+    Dataset = "Dataset"
 
 
-def get_item(key: Keys) -> Any:
+def get_item(key: Key) -> Any:
     return st.session_state[key.value]
 
 
-def set_item(key: Keys, value: Any) -> None:
+def set_item(key: Key, value: Any) -> None:
     st.session_state[key.value] = value
 
 
-def set_item_safe(key: Keys, value: Any) -> None:
+def set_item_safe(key: Key, value: Any) -> None:
     """
     Assigns value to the given key if the key does not exist.
     :param key:
@@ -34,12 +35,13 @@ def set_item_safe(key: Keys, value: Any) -> None:
     set_item(key, value)
 
 
-def del_item(key: Keys) -> None:
+def del_item(key: Key) -> None:
     if not contains(key):
         return
 
     del st.session_state[key.value]
 
 
-def contains(key: Keys) -> bool:
+def contains(key: Key) -> bool:
     return key.value in st.session_state
+

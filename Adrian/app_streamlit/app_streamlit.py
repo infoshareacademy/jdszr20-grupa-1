@@ -7,22 +7,22 @@ from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 
-from Adrian.app_streamlit.repository import Keys
+from Adrian.app_streamlit.repository import Key
 from Adrian.app_streamlit import tab_user_vs_ai, tab_enter_user_text, config, repository
 
 
 def load_transformer() -> None:
-    if repository.contains(Keys.Transformer):
+    if repository.contains(Key.Transformer):
         return
 
-    repository.set_item(Keys.Transformer, SentenceTransformer(config.PATH_TRANSFORMER))
+    repository.set_item(Key.Transformer, SentenceTransformer(config.PATH_TRANSFORMER))
 
 
 def load_model() -> None:
-    if repository.contains(Keys.Model):
+    if repository.contains(Key.Model):
         return
 
-    repository.set_item(Keys.Model, joblib.load(config.PATH_MODEL))
+    repository.set_item(Key.Model, joblib.load(config.PATH_MODEL))
 
 
 load_transformer()
