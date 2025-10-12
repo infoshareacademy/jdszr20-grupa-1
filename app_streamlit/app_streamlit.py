@@ -11,7 +11,10 @@ sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 
 from tab_user_vs_ai import Name
 from repository import Key
-import repository, config, tab_enter_user_text, tab_user_vs_ai
+import repository
+import config
+import tab_user_vs_ai
+import tab_enter_user_text
 
 
 def load_transformer() -> None:

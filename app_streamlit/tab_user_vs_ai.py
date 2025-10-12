@@ -138,20 +138,21 @@ def create_structure_drawn_entries(
                     key=f"{name.value}-button-id-{i}"
                 )
 
-            if result is None:
-                continue
-
             with col_result:
                 text = "<<"
-                if i == result.index_user:
-                    text += " | USER"
-                if i == result.index_model:
-                    text += " | MODEL"
-                if i == result.index_actual:
-                    text += " | ACTUAL"
+                if result is not None:
+                    if i == result.index_user:
+                        text += " | USER"
+                    if i == result.index_model:
+                        text += " | MODEL"
+                    if i == result.index_actual:
+                        text += " | ACTUAL"
 
+                text_placeholder = st.empty()
                 if text != "<<":
-                    st.text(text)
+                    text_placeholder.text(text)
+                else:
+                    text_placeholder.text("")
 
 
 def create_structure_score(keys: Dict[KeyName, Key]) -> None:
