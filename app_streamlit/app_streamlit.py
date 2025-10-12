@@ -9,9 +9,9 @@ from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 
-from Adrian.app_streamlit.tab_user_vs_ai import Name
-from Adrian.app_streamlit.repository import Key
-from Adrian.app_streamlit import tab_user_vs_ai, tab_enter_user_text, config, repository
+from tab_user_vs_ai import Name
+from repository import Key
+import repository, config, tab_enter_user_text, tab_user_vs_ai
 
 
 def load_transformer() -> None:

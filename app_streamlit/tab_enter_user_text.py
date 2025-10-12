@@ -1,8 +1,8 @@
 import streamlit as st
 from sentence_transformers import SentenceTransformer
 
-from Adrian.app_streamlit import repository
-from Adrian.app_streamlit.repository import Key
+import repository
+from repository import Key
 
 
 def convert_answer_number_to_text(number: int):
