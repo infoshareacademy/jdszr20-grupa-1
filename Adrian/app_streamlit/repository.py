@@ -5,13 +5,20 @@ import streamlit as st
 
 class Key(Enum):
     Transformer = "Transformer"
-    Model = "Model"
-    DrawnEntries = "DrawnEntries"
+    ModelSVC = "ModelSVC"
+    ModelXGBoost = "ModelXGBoost"
+    DatasetValidation = "DatasetValidation"
+    DatasetGPT = "DatasetGPT"
+    DrawnEntriesSVC = "DrawnEntriesSVC"
+    DrawnEntriesXGBoost = "DrawnEntriesGXBoost"
+    ScoreUserSVC = "ScoreUserSVC"
+    ScoreUserXGBoost = "ScoreUserXGBoost"
+    ScoreModelSVC = "ScoreModelSVC"
+    ScoreModelXGBoost = "ScoreModelXGBoost"
+    ResultSVC = "ResultSVC"
+    ResultXGBoost = "ResultXGBoost"
+
     UserInputPrediction = "UserInputPrediction"
-    ScoreUser = "ScoreUser"
-    ScoreAI = "ScoreAI"
-    Result = "Result"
-    Dataset = "Dataset"
 
 
 def get_item(key: Key) -> Any:

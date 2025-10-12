@@ -3,13 +3,16 @@ from sentence_transformers import SentenceTransformer
 
 from Adrian.app_streamlit import repository
 from Adrian.app_streamlit.repository import Key
-from Adrian.app_streamlit.utils import convert_answer_number_to_text
+
+
+def convert_answer_number_to_text(number: int):
+    return 'FAKE' if number == 1 else 'REAL'
 
 
 def predict(text: str) -> None:
     transformer: SentenceTransformer = repository.get_item(Key.Transformer)
     embedded_text = transformer.encode(text, convert_to_tensor=False)
-    prediction = repository.get_item(Key.Model).predict(embedded_text.reshape(1, -1))
+    prediction = repository.get_item(Key.ModelSVC).predict(embedded_text.reshape(1, -1))
     repository.set_item(Key.UserInputPrediction, convert_answer_number_to_text(prediction[0]))
 
 

@@ -1,31 +1,35 @@
+from enum import Enum
+
+
 class Result:
     def __init__(
             self,
-            index: int,
-            text: str,
-            model_prediction: str,
-            real_state: str,
-            is_user_right: bool,
-            is_model_right: bool
+            index_user: int,
+            index_model: int,
+            index_actual: int
     ):
-        self.__index: int = index
-        self.__text: str = text
-        self.__model_prediction: str = model_prediction
-        self.__real_answer: str = real_state
-        self.__is_user_right: bool = is_user_right
-        self.__is_model_right: bool = is_model_right
+        self.__index_user: int = index_user
+        self.__index_model: int = index_model
+        self.__index_actual: int = index_actual
+        self.__is_user_right: bool = index_user == index_actual
+        self.__is_model_right: bool = index_model == index_actual
+
+    def __str__(self):
+        return\
+            (f"Actual: {self.__index_actual}\n"
+             f"User: {self.__index_user}\n"
+             f"Model: {self.__index_model}\n"
+             f"Is user right: {self.__is_user_right}\n"
+             f"Is model right: {self.__is_model_right}\n")
 
     @property
-    def index(self) -> int: return self.__index
+    def index_user(self) -> int: return self.__index_user
 
     @property
-    def text(self) -> str: return self.__text
+    def index_model(self) -> int: return self.__index_model
 
     @property
-    def model_prediction(self) -> str: return self.__model_prediction
-
-    @property
-    def real_answer(self) -> str: return self.__real_answer
+    def index_actual(self) -> int: return self.__index_actual
 
     @property
     def is_user_right(self) -> bool: return self.__is_user_right
@@ -34,5 +38,6 @@ class Result:
     def is_model_right(self) -> bool: return self.__is_model_right
 
 
-def convert_answer_number_to_text(number: int):
-    return 'FAKE' if number == 1 else 'REAL'
+class Model(Enum):
+    SVC = "SVC"
+    XGBoost = "XGBoost"
