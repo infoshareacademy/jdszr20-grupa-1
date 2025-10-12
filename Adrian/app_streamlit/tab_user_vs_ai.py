@@ -132,7 +132,7 @@ def create_structure_drawn_entries(
                     disabled=repository.get_item(keys_lookup[name][KeyName.Result]) is not None,
                     type="tertiary"
                     if result is not None and
-                       (i == result.is_user_right or
+                       (i == result.index_user or
                         i == result.index_model)
                     else "secondary",
                     key=f"{name.value}-button-id-{i}"

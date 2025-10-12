@@ -47,7 +47,10 @@ load_model()
 load_datasets()
 
 st.header("Try and test our app!")
-st.text("Disclaimer: A simple statement of an incorrect fact is NOT considered a fake according to our model.")
+st.text("Disclaimer:")
+st.text("Please note that our model is not a fact-checker. It does not search the Internet or any database to validate facts."
+        " It has been trained on a finite numer of labeled text samples to classify news as real or fake based on typical semantic and syntactic cues.")
+
 tab_test_yourself_svc, tab_test_yourself_xgboost, tab_enter_text = st.tabs([
     "Test Yourself vs AI! (SVC)",
     "Test Yourself vs AI! (XGBoost)",
