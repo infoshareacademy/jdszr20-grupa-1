@@ -5,9 +5,9 @@ import pandas as pd
 import streamlit as st
 from pandas import DataFrame
 
-from Adrian.app_streamlit import repository, config
-from Adrian.app_streamlit.repository import Key
-from Adrian.app_streamlit.utils import Result
+import repository, config
+from repository import Key
+from utils import Result
 
 
 class Name(Enum):

@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Any, List
+from typing import Any
 import streamlit as st
 
 
