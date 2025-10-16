@@ -1,5 +1,5 @@
-# ML-based fake news classification models and online fake news gamification app
-The final group project in the infoShare Academy Data Science boot camp, conceived and developed by **ADAM**:
+# Natural language processing: fake news classification ML analysis and online fake news gamification app
+The final group project at the infoShare Academy Data Science boot camp, conceived and developed by **ADAM**:
  - **A**licja Szpunar-Szałek (<a href="https://github.com/AlicjaSzpunarSzalek">AlicjaSzpunarSzalek</a>)
  - **D**ominika Kokoryk (<a href="https://github.com/dominija">dominija</a>)
  - **A**drian Komuda (<a href="https://github.com/Naioku">Naioku</a>)
@@ -10,3 +10,7 @@ We combined several real-world fake news datasets available online to train and 
 
 - PDF presentation <a href="presentations/Presentation_short_PL_ADAM.pdf">in Polish</a> (English version coming soon)
 - <a href="https://huggingface.co/spaces/Naioku/adam">Online app</a> (three modes: play vs. SVC on test data / play vs. XGB on ChatGPT data / input your own text and test the SVC model )
+
+
+## App screenshots
+<img src="presentations/app2.png" alt="App screen 2" width="500"> <img src="presentations/app1.png" alt="App screen 1" width="500"> 
